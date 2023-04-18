@@ -78,6 +78,15 @@ h2 {
   height: 170px;
 }
 
+.rock-icon, .scissors-icon {
+  height: 13px;
+  width: 13px;
+}
+
+.classic-label, .difficult-label, .rock-icon, .scissors-icon {
+  background-color: rgb(196 80 255);
+}
+
 .rules {
   display: flex;
   flex-direction: column;
