@@ -1,6 +1,6 @@
 * {
   background-color: rgb(209 118 255);
-  border: 2px solid red;
+  /* border: 2px solid red; */
   color: white;
 }
 
@@ -8,7 +8,8 @@ body {
   display: flex;
   justify-content: space-between;
   height: 100vh;
-  font-family: sans-serif
+  font-family: sans-serif;
+  margin: 0px;
 }
 
 .human-icon, .robot-icon {
@@ -24,7 +25,7 @@ body {
 }
 
 .human-section, .computer-section {
-  padding: 2%;
+  padding: 3%;
   background-color: rgb(219 147 255);
 }
 
@@ -64,8 +65,9 @@ h2 {
   align-items: center;
   flex-direction: column;
   padding: 17px;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
+  background-color: rgb(196 80 255);
 }
 
 .classic-button {
@@ -79,6 +81,12 @@ h2 {
 .rules {
   display: flex;
   flex-direction: column;
+}
+.button-label {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(196 80 255);
 }
 
 /* --------- */
