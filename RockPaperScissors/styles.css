@@ -14,7 +14,7 @@ body {
 .human-icon, .robot-icon {
   height: 50px;
   width: 50px;
-
+  background-color: rgb(219 147 255);
 }
 
 .human-section, .game-section, .computer-section {
@@ -25,11 +25,19 @@ body {
 
 .human-section, .computer-section {
   padding: 2%;
+  background-color: rgb(219 147 255);
+}
+
+.human-label, .computer-label {
+  background-color: rgb(219 147 255);
 }
 
 .human-wins, .computer-wins {
   padding: 14px;
   width: 100%;
+  background-color: rgb(219 147 255);
+  display: flex;
+  justify-content: center;
 }
 
 h1 {
