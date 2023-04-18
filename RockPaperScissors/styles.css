@@ -1,0 +1,9 @@
+* {
+  border: 2px solid red
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
