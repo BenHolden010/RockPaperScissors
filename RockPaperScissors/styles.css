@@ -1,21 +1,40 @@
 * {
-  background-color: rgb(209 118 255);;
-  border: 2px solid red
+  background-color: rgb(209 118 255);
+  border: 2px solid red;
+  color: white;
 }
 
 body {
   display: flex;
-  
   justify-content: space-between;
+  height: 100vh;
 }
 
 .human-icon, .robot-icon {
   height: 50px;
   width: 50px;
+
 }
 
 .human-section, .game-section, .computer-section {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.human-section, .computer-section {
+  padding: 2%;
+}
+
+.human-wins, .computer-wins {
+  padding: 14px
+}
+
+h1 {
+  font-size: 60px;
+  margin-bottom: 0px;
+}
+
+h2 {
+  margin-top: 0px;
 }
