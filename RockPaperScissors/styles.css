@@ -1,4 +1,5 @@
 * {
+  background-color: rgb(209 118 255);;
   border: 2px solid red
 }
 
@@ -16,4 +17,5 @@ body {
 .human-section, .game-section, .computer-section {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
