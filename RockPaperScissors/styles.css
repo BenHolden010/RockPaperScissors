@@ -4,6 +4,16 @@
 
 body {
   display: flex;
-  flex-direction: row;
+  
   justify-content: space-between;
+}
+
+.human-icon, .robot-icon {
+  height: 50px;
+  width: 50px;
+}
+
+.human-section, .game-section, .computer-section {
+  display: flex;
+  flex-direction: column;
 }
