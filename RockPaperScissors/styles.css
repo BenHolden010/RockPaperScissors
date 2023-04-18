@@ -38,3 +38,33 @@ h1 {
 h2 {
   margin-top: 0px;
 }
+
+.user-section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-evenly;
+}
+
+.classic-button, .difficult-button {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 17px;
+  justify-content: space-between;
+  width: 35%;
+}
+
+.classic-button {
+  height: 145px;
+}
+
+.difficult-button {
+  height: 170px;
+}
+
+.rules {
+  display: flex;
+  flex-direction: column;
+}
