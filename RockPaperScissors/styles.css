@@ -68,6 +68,7 @@ h2 {
   justify-content: space-evenly;
   width: 100%;
   background-color: rgb(196 80 255);
+  border: 0
 }
 
 .classic-button {
@@ -78,12 +79,12 @@ h2 {
   height: 170px;
 }
 
-.rock-icon, .scissors-icon {
+.rock-icon, .scissors-icon, .lizard-icon, .alien-icon {
   height: 13px;
   width: 13px;
 }
 
-.classic-label, .difficult-label, .rock-icon, .scissors-icon {
+.classic-label, .difficult-label, .rock-icon, .scissors-icon, .lizard-icon, .alien-icon {
   background-color: rgb(196 80 255);
 }
 
