@@ -41,6 +41,12 @@ body {
   justify-content: center;
 }
 
+.change-game-button {
+  background-color: rgb(196 80 255);
+  border: 0;
+  font-size: 10px;
+}
+
 h1 {
   font-size: 60px;
   margin-bottom: 0px;
@@ -103,7 +109,7 @@ h2 {
 
 /* classic display and difficult display */
 
-.classic-display, .difficult-display {
+.game-display {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -114,7 +120,7 @@ h2 {
   justify-content: space-evenly;
 }
 
-.rock-button, .paper-button, .scissors-button {
+.rock-button, .paper-button, .scissors-button, .alien-button, .lizard-button {
   height: 150px
 }
 
