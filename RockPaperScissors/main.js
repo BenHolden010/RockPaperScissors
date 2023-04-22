@@ -5,16 +5,23 @@ var classicButton = document.querySelector('.classic-button')
 var difficultButton = document.querySelector('.difficult-button')
 var difficultButtons = document.querySelector('.difficult-buttons')
 var changeGameButton = document.querySelector('.change-game-button')
-var rockButton = document.querySelector('.rock-button')
-var paperButton = document.querySelector('.paper-button')
-var scissorsButton = document.querySelector('.scissors-button')
-var lizardButton = document.querySelector('.lizard-button')
-var alienButton = document.querySelector('.alien-button')
+var rockButton = document.querySelector('#rock')
+var paperButton = document.querySelector('#paper')
+var scissorsButton = document.querySelector('#scissors')
+var lizardButton = document.querySelector('#lizard')
+var alienButton = document.querySelector('#alien')
+var humanWins = document.querySelector('.human-wins')
+var computerWins = document.querySelector('.computer-wins')
+var resultsDisplay = document.querySelector('.results-display')
 
 // create variables 
 
-var playerWins = []
-var computerWins = []
+var fightersRPS = ['rock','paper','scissors']
+var player = {
+  name: 'human',
+  playerWins: 0,
+  computerWins: 0,
+}
 
 // create event listeners()
 
@@ -48,69 +55,74 @@ function displayGameRPSLA() {
   difficultButtons.classList.remove('hidden')
 }
 
-// function createPlayer() {
-  var player = {
-    name: 'human',
-    playerWins: 0,
-    computerWins: 0,
-  }
-//   return player
-// }
-
-function createGame(event) {
-var computerChoiceRPS = computerChoice()
-var humanChoice = event.target.id
-
-if (humanChoice === 'rock'){
-  if (computerChoiceRPS === 'rock') {
-    return tieDisplay(event)
-  } else if (computerChoiceRPS === 'paper'){
-    return loseDisplay(event)
-  } else if (computerChoiceRPS === 'scissors'){
-    return winDisplay(event)
-  }
-} else if (humanChoice === 'paper'){
-  if (computerChoiceRPS === 'rock') {
-      return winDisplay(event)
-  } else if (computerChoiceRPS === 'paper'){
-      return tieDisplay(event)
-  } else  if (computerChoiceRPS === 'scissors'){
-      return loseDisplay(event)
-  } 
-} else if (humanChoice === 'scissors'){
-  if (computerChoiceRPS === 'rock') {
-    return loseDisplay(event)
-  } else if (computerChoiceRPS === 'paper'){
-      return winDisplay(event)
-  } else if (computerChoiceRPS === 'scissors'){
-      return tieDisplay(event)
-  }
-} 
-
+function hideGame(){
+  gameDisplay.classList.add('hidden')
 }
 
+function hideResults(){
+  resultsDisplay.classList.add('hidden')
+}
+
+function showResults(){
+  resultsDisplay.classList.remove('hidden')
+}
+
+function createGame(event) {
+  var computerChoiceRPS = computerChoice()
+  var humanChoice = event.target.id
+  if (humanChoice === 'rock' && computerChoiceRPS === 'rock'){
+    tieDisplay(event)
+  } else if (humanChoice === 'rock' && computerChoiceRPS === 'paper'){
+    loseDisplay(event)
+    addComputerWins()
+  } else if (humanChoice === 'rock' && computerChoiceRPS === 'scissors'){
+    winDisplay(event)
+    addHumanWins()
+  } else if (humanChoice === 'paper' && computerChoiceRPS === 'rock'){
+    winDisplay(event)
+    addHumanWins()
+  } else if (humanChoice === 'paper' && computerChoiceRPS === 'paper'){
+    tieDisplay(event)
+  } else if (humanChoice === 'paper' && computerChoiceRPS === 'scissors'){
+    loseDisplay(event)
+    addComputerWins()
+  } else if (humanChoice === 'scissors' && computerChoiceRPS === 'rock') {
+    loseDisplay(event)
+    addComputerWins()
+  } else if (humanChoice === 'scissors' && computerChoiceRPS === 'paper'){
+    winDisplay(event)
+    addHumanWins()
+  } else if (humanChoice === 'scissors' && computerChoiceRPS === 'scissors'){
+    tieDisplay(event)
+  }
+  showResults()
+  setTimeout(displayGameRPS, 3000)
+  setTimeout(hideResults, 3000)
+  hideGame()
+  displayWins()
+}
+
+
 function winDisplay(event){
-  gameDisplay.innerHTML = `
+  resultsDisplay.innerHTML = `
   <h2>😎You Win!😎</h2>
     <div class="classic-buttons">
       <img class="rock-button" id="${event.target.id}" src="${event.target.src}">
       <img class="scissors-button" id="${computerChoiceRPS}" src="assets/happy-${computerChoiceRPS}.png">
-    </div>
-  `
+    </div>`
 }
 
 function loseDisplay(event){
-  gameDisplay.innerHTML = `
+  resultsDisplay.innerHTML = `
   <h2>You lose</h2>
     <div class="classic-buttons">
       <img class="rock-button" id="${event.target.id}" src="${event.target.src}">
       <img class="scissors-button" id="${computerChoiceRPS}" src="assets/happy-${computerChoiceRPS}.png">
-    </div>
-  `
+    </div>`
 }
 
 function tieDisplay(event){
-  gameDisplay.innerHTML = `
+  resultsDisplay.innerHTML = `
   <h2>tie!</h2>
     <div class="classic-buttons">
       <img class="rock-button" id="${event.target.id}" src="${event.target.src}">
@@ -118,19 +130,19 @@ function tieDisplay(event){
     </div>`
 }
 
-function resetGameRPS(){
-  gameDisplay.innerHTML = `
-  <h2>Choose your fighter!</h2>
-  <div class="classic-buttons">
-    <img class="rock-button" id="rock" src="assets/happy-rock.png">
-    <img class="paper-button" id="paper" src="assets/happy-paper.png">
-    <img class="scissors-button" id="scissors" src="assets/happy-scissors.png">
-  </div>
-  <div class="difficult-buttons hidden">  
-    <img class="lizard-button" id="lizard" src="assets/happy-lizard.png">
-    <img class="alien-button" id="alien" src="assets/happy-alien.png">
-  </div>`
-}
+// function resetGameRPS(){
+//   gameDisplay.innerHTML = `
+//   <h2>Choose your fighter!</h2>
+//   <div class="classic-buttons">
+//     <img class="rock-button" id="rock" src="assets/happy-rock.png">
+//     <img class="paper-button" id="paper" src="assets/happy-paper.png">
+//     <img class="scissors-button" id="scissors" src="assets/happy-scissors.png">
+//   </div>
+//   <div class="difficult-buttons hidden">  
+//     <img class="lizard-button" id="lizard" src="assets/happy-lizard.png">
+//     <img class="alien-button" id="alien" src="assets/happy-alien.png">
+//   </div>`
+// }
 
 function computerChoice(){
     var choice = Math.random()
@@ -142,24 +154,16 @@ function computerChoice(){
   return computerChoiceRPS = 'scissors'
 }
 
-// function humanChoice(event){
-//   var humanChoice = event.target.id
-//   return humanChoice
-// }
 
-function countWins(){
-  // console.log(createGame('rock') === 'win')
-  if (createGame('rock') === 'win'){
-     player.playerWins += 1
-     playerWins.push(player.playerWins)
-  } else if (createGame('rock') === 'lose'){
-    player.computerWins += 1
-    computerWins.push(player.computerWins)
-  }
-
+function addHumanWins(){
+  player.playerWins += 1
 }
-// console.log(createPlayer())
-// console.log(countWins())
-// console.log('playerWins=' + playerWins)
-// console.log('computerWins=' + computerWins)
-// console.log(createGame())
+
+function addComputerWins(){
+  player.computerWins += 1
+}
+
+function displayWins(){
+computerWins.innerHTML = `wins: ${player.computerWins}`
+humanWins.innerHTML = `wins: ${player.playerWins}`
+}
