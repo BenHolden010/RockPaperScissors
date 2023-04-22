@@ -41,21 +41,29 @@ body {
   justify-content: center;
 }
 
+.change-game-button {
+  background-color: rgb(196 80 255);
+  border: 0;
+  font-size: 10px;
+}
+
 h1 {
   font-size: 60px;
   margin-bottom: 0px;
 }
 
 h2 {
+  display: flex;
+  justify-content: center;
   margin-top: 0px;
 }
 
-.user-section {
+.home-section {
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
-  justify-content: space-evenly;
+  height: 500px;
+  justify-content: space-between;
 }
 
 /* Home View */
@@ -99,4 +107,25 @@ h2 {
   background-color: rgb(196 80 255);
 }
 
+/* classic display and difficult display */
+
+.game-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.classic-buttons, .difficult-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.rock-button, .paper-button, .scissors-button, .rock, .paper, .scissors, .alien, .lizard {
+  height: 150px
+}
+
 /* --------- */
+
+.hidden {
+  display: none;
+}

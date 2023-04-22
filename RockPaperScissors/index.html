@@ -12,15 +12,16 @@
     <img class="human-icon" src="assets/human-icon-png-1895.png">
     <label class="human-label">Human</label>
     <section class="human-wins">Wins: 0</section>
+    <button class="change-game-button hidden">Change Game?</button>
   </section>
   <section class="game-section">
     <h1>Rock, Paper, Scissors</h1>
-    <h2>Choose your game!</h2>
-    <section class="user-section">
+    <section class="home-section">
+      <h2>Choose your game!</h2>
       <button class="classic-button">
         <div>
           <label class="classic-label">
-            <img class="rock-icon" src="assets/happy-rocks.png">
+            <img class="rock-icon" src="assets/happy-rock.png">
             CLASSIC
             <img class="scissors-icon" src="assets/happy-scissors.png">
           </label>
@@ -34,9 +35,9 @@
       <button class="difficult-button">
         <div>
           <label class="difficult-label">
-            <img class="lizard-icon" src="assets/flat-lizard.png">
-            CLASSIC
-            <img class="alien-icon" src="assets/ufo.png"></label>
+            <img class="lizard-icon" src="assets/happy-lizard.png">
+            DIFFICULT
+            <img class="alien-icon" src="assets/happy-alien.png"></label>
         </div>
         <div class="rules">
           <label class="button-label">rock > scissors & lizard</label>
@@ -46,6 +47,27 @@
           <label class="button-label">alien > scissors & rock</label>
         </div>
       </button>
+    </section>
+    <section class="game-display hidden">
+      <h2>Choose your fighter!</h2>
+      <div class="classic-buttons">
+        <img class="rock-button" id="rock" src="assets/happy-rock.png">
+        <img class="paper-button" id="paper" src="assets/happy-paper.png">
+        <img class="scissors-button" id="scissors" src="assets/happy-scissors.png">
+      </div>
+      <div class="difficult-buttons">
+        <img class="rock" id="rock-button-difficult" src="assets/happy-rock.png">
+        <img class="paper" id="paper-button-difficult" src="assets/happy-paper.png">
+        <img class="scissors" id="scissors-button-difficult" src="assets/happy-scissors.png">  
+        <img class="lizard" id="lizard-button-difficult" src="assets/happy-lizard.png">
+        <img class="alien" id="alien-button-difficult" src="assets/happy-alien.png">
+      </div>
+    </section>
+    <section class="classic-display">
+      <!-- classic results display goes here -->
+    </section>
+    <section class="difficult-display">
+      <!-- difficult results display goes here -->
     </section>
   </section>
   <section class="computer-section">
