@@ -43,9 +43,9 @@ alienButton.addEventListener('click', createDifficultGame)
 // functions
 
 function displayHome() {
-  gameDisplay.classList.add('hidden')
   homeSection.classList.remove('hidden')
   changeGameButton.classList.add('hidden')
+  hideGame()
 }
 
 function displayGameRPS() {
@@ -66,20 +66,12 @@ function hideGame(){
   gameDisplay.classList.add('hidden')
 }
 
-function hideResults(){
-  classicDisplay.classList.add('hidden')
+function toggleClassicResults(){
+  classicDisplay.classList.toggle('hidden')
 }
 
-function showResults(){
-  classicDisplay.classList.remove('hidden')
-}
-
-function hideDifficultResults(){
-  difficultDisplay.classList.add('hidden')
-}
-
-function showDifficultResults(){
-  difficultDisplay.classList.remove('hidden')
+function toggleDifficultResults(){
+  difficultDisplay.classList.toggle('hidden')
 }
 
 function createGame(event) {
@@ -98,9 +90,9 @@ function createGame(event) {
   } else if(humanChoice === computerChoiceRPS || humanChoice === computerChoiceRPSLA){
       tieDisplay(event)
   } 
-  showResults()
+  toggleClassicResults()
   setTimeout(displayGameRPS, 3000)
-  setTimeout(hideResults, 3000)
+  setTimeout(toggleClassicResults, 3000)
   hideGame()
   displayWins()
 }
@@ -137,11 +129,11 @@ function createDifficultGame(event) {
   } else if(humanChoice === computerChoiceRPSLA){
     tieDifficultDisplay(event, computerChoiceRPSLA)
   } 
-  showDifficultResults()
+  toggleDifficultResults()
   hideGame()
   displayWins()
   setTimeout(displayGameRPSLA, 3000)
-  setTimeout(hideDifficultResults, 3000)
+  setTimeout(toggleDifficultResults, 3000)
 }
 
 function winDisplay(event){
