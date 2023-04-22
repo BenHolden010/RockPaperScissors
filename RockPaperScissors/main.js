@@ -2,23 +2,26 @@
 var homeSection = document.querySelector('.home-section')
 var gameDisplay = document.querySelector('.game-display')
 var classicButton = document.querySelector('.classic-button')
+var classicButtons = document.querySelector('.classic-buttons')
 var difficultButton = document.querySelector('.difficult-button')
 var difficultButtons = document.querySelector('.difficult-buttons')
 var changeGameButton = document.querySelector('.change-game-button')
 var rockButton = document.querySelector('#rock')
 var paperButton = document.querySelector('#paper')
 var scissorsButton = document.querySelector('#scissors')
-var lizardButton = document.querySelector('#lizard')
-var alienButton = document.querySelector('#alien')
+var rockButtonD = document.querySelector('.rock')
+var paperButtonD = document.querySelector('.paper')
+var scissorsButtonD = document.querySelector('.scissors')
+var lizardButton = document.querySelector('.lizard')
+var alienButton = document.querySelector('.alien')
 var humanWins = document.querySelector('.human-wins')
 var computerWins = document.querySelector('.computer-wins')
-var resultsDisplay = document.querySelector('.results-display')
+var classicDisplay = document.querySelector('.classic-display')
+var difficultDisplay = document.querySelector('.difficult-display')
 
-// create variables 
+// data model
 
-var fightersRPS = ['rock','paper','scissors']
 var player = {
-  name: 'human',
   playerWins: 0,
   computerWins: 0,
 }
@@ -31,9 +34,11 @@ changeGameButton.addEventListener('click', displayHome)
 rockButton.addEventListener('click', createGame)
 paperButton.addEventListener('click', createGame)
 scissorsButton.addEventListener('click', createGame)
-lizardButton.addEventListener('click', createGame)
-alienButton.addEventListener('click', createGame)
-
+rockButtonD.addEventListener('click', createDifficultGame)
+paperButtonD.addEventListener('click', createDifficultGame)
+scissorsButtonD.addEventListener('click', createDifficultGame)
+lizardButton.addEventListener('click', createDifficultGame)
+alienButton.addEventListener('click', createDifficultGame)
 
 // functions
 
@@ -48,11 +53,13 @@ function displayGameRPS() {
   homeSection.classList.add('hidden')
   changeGameButton.classList.remove('hidden')
   difficultButtons.classList.add('hidden')
+  classicButtons.classList.remove('hidden')
 }
 
 function displayGameRPSLA() {
   displayGameRPS()
   difficultButtons.classList.remove('hidden')
+  classicButtons.classList.add('hidden')
 }
 
 function hideGame(){
@@ -60,41 +67,37 @@ function hideGame(){
 }
 
 function hideResults(){
-  resultsDisplay.classList.add('hidden')
+  classicDisplay.classList.add('hidden')
 }
 
 function showResults(){
-  resultsDisplay.classList.remove('hidden')
+  classicDisplay.classList.remove('hidden')
+}
+
+function hideDifficultResults(){
+  difficultDisplay.classList.add('hidden')
+}
+
+function showDifficultResults(){
+  difficultDisplay.classList.remove('hidden')
 }
 
 function createGame(event) {
   var computerChoiceRPS = computerChoice()
   var humanChoice = event.target.id
-  if (humanChoice === 'rock' && computerChoiceRPS === 'rock'){
-    tieDisplay(event)
-  } else if (humanChoice === 'rock' && computerChoiceRPS === 'paper'){
-    loseDisplay(event)
-    addComputerWins()
-  } else if (humanChoice === 'rock' && computerChoiceRPS === 'scissors'){
+  if (humanChoice === 'rock' && computerChoiceRPS === 'scissors' ||
+    humanChoice === 'paper' && computerChoiceRPS === 'rock' || 
+    humanChoice === 'scissors' && computerChoiceRPS === 'paper') {
     winDisplay(event)
     addHumanWins()
-  } else if (humanChoice === 'paper' && computerChoiceRPS === 'rock'){
-    winDisplay(event)
-    addHumanWins()
-  } else if (humanChoice === 'paper' && computerChoiceRPS === 'paper'){
-    tieDisplay(event)
-  } else if (humanChoice === 'paper' && computerChoiceRPS === 'scissors'){
-    loseDisplay(event)
-    addComputerWins()
-  } else if (humanChoice === 'scissors' && computerChoiceRPS === 'rock') {
-    loseDisplay(event)
-    addComputerWins()
-  } else if (humanChoice === 'scissors' && computerChoiceRPS === 'paper'){
-    winDisplay(event)
-    addHumanWins()
-  } else if (humanChoice === 'scissors' && computerChoiceRPS === 'scissors'){
-    tieDisplay(event)
-  }
+  } else if (humanChoice === 'rock' && computerChoiceRPS === 'paper' ||
+      humanChoice === 'paper' && computerChoiceRPS === 'scissors' ||
+      humanChoice === 'scissors' && computerChoiceRPS === 'rock') {
+      loseDisplay(event)
+      addComputerWins()
+  } else if(humanChoice === computerChoiceRPS || humanChoice === computerChoiceRPSLA){
+      tieDisplay(event)
+  } 
   showResults()
   setTimeout(displayGameRPS, 3000)
   setTimeout(hideResults, 3000)
@@ -102,9 +105,47 @@ function createGame(event) {
   displayWins()
 }
 
+function createDifficultGame(event) {
+  var computerChoiceRPSLA = computerChoiceDifficult()
+  var humanChoice = event.target.classList[0]
+  if (humanChoice === 'rock' && computerChoiceRPSLA === 'scissors' ||
+  humanChoice === 'rock' && computerChoiceRPSLA === 'lizard' ||
+  humanChoice === 'paper' && computerChoiceRPSLA === 'rock' || 
+  humanChoice === 'paper' && computerChoiceRPSLA === 'alien' ||
+  humanChoice === 'scissors' && computerChoiceRPSLA === 'paper' ||
+  humanChoice === 'scissors' && computerChoiceRPSLA === 'lizard' ||
+  humanChoice === 'lizard' && computerChoiceRPSLA === 'paper' ||
+  humanChoice === 'lizard' && computerChoiceRPSLA === 'alien' ||
+  humanChoice === 'alien' && computerChoiceRPSLA === 'scissors' ||
+  humanChoice === 'alien' && computerChoiceRPSLA === 'rock'
+  ){
+    winDifficultDisplay(event, computerChoiceRPSLA)
+    addHumanWins()
+  } else if (humanChoice === 'rock' && computerChoiceRPSLA === 'paper' ||
+  humanChoice === 'rock' && computerChoiceRPSLA === 'alien' ||
+  humanChoice === 'paper' && computerChoiceRPSLA === 'scissors' ||
+  humanChoice === 'paper' && computerChoiceRPSLA === 'lizard' ||
+  humanChoice === 'scissors' && computerChoiceRPSLA === 'rock' ||
+  humanChoice === 'scissors' && computerChoiceRPSLA === 'alien' ||
+  humanChoice === 'lizard' && computerChoiceRPSLA === 'rock' ||
+  humanChoice === 'lizard' && computerChoiceRPSLA === 'scissors' ||
+  humanChoice === 'alien' && computerChoiceRPSLA === 'paper' ||
+  humanChoice === 'alien' && computerChoiceRPSLA === 'lizard'
+  ){
+    loseDifficultDisplay(event, computerChoiceRPSLA)
+    addComputerWins()
+  } else if(humanChoice === computerChoiceRPSLA){
+    tieDifficultDisplay(event, computerChoiceRPSLA)
+  } 
+  showDifficultResults()
+  hideGame()
+  displayWins()
+  setTimeout(displayGameRPSLA, 3000)
+  setTimeout(hideDifficultResults, 3000)
+}
 
 function winDisplay(event){
-  resultsDisplay.innerHTML = `
+  classicDisplay.innerHTML = `
   <h2>😎You Win!😎</h2>
     <div class="classic-buttons">
       <img class="rock-button" id="${event.target.id}" src="${event.target.src}">
@@ -113,7 +154,7 @@ function winDisplay(event){
 }
 
 function loseDisplay(event){
-  resultsDisplay.innerHTML = `
+  classicDisplay.innerHTML = `
   <h2>You lose</h2>
     <div class="classic-buttons">
       <img class="rock-button" id="${event.target.id}" src="${event.target.src}">
@@ -122,7 +163,7 @@ function loseDisplay(event){
 }
 
 function tieDisplay(event){
-  resultsDisplay.innerHTML = `
+  classicDisplay.innerHTML = `
   <h2>tie!</h2>
     <div class="classic-buttons">
       <img class="rock-button" id="${event.target.id}" src="${event.target.src}">
@@ -130,22 +171,38 @@ function tieDisplay(event){
     </div>`
 }
 
-// function resetGameRPS(){
-//   gameDisplay.innerHTML = `
-//   <h2>Choose your fighter!</h2>
-//   <div class="classic-buttons">
-//     <img class="rock-button" id="rock" src="assets/happy-rock.png">
-//     <img class="paper-button" id="paper" src="assets/happy-paper.png">
-//     <img class="scissors-button" id="scissors" src="assets/happy-scissors.png">
-//   </div>
-//   <div class="difficult-buttons hidden">  
-//     <img class="lizard-button" id="lizard" src="assets/happy-lizard.png">
-//     <img class="alien-button" id="alien" src="assets/happy-alien.png">
-//   </div>`
-// }
+function winDifficultDisplay(event, computerChoiceRPSLA){
+  var humanChoice = event.target.classList[0]
+  difficultDisplay.innerHTML = `
+  <h2>😎You Win!😎</h2>
+    <div class="difficult-buttons">
+      <img class="${humanChoice}" src="${event.target.src}">
+      <img class="${computerChoiceRPSLA}" src="assets/happy-${computerChoiceRPSLA}.png">
+    </div>`
+}
+
+function loseDifficultDisplay(event, computerChoiceRPSLA){
+  var humanChoice = event.target.classList[0]
+  difficultDisplay.innerHTML = `
+  <h2>You lose</h2>
+    <div class="difficult-buttons">
+      <img class="${humanChoice}" src="${event.target.src}">
+      <img class="${computerChoiceRPSLA}" src="assets/happy-${computerChoiceRPSLA}.png">
+    </div>`
+}
+
+function tieDifficultDisplay(event, computerChoiceRPSLA){
+  var humanChoice = event.target.classList[0]
+  difficultDisplay.innerHTML = `
+  <h2>tie!</h2>
+    <div class="difficult-buttons">
+    <img class="${humanChoice}" src="${event.target.src}">
+    <img class="${computerChoiceRPSLA}" src="assets/happy-${computerChoiceRPSLA}.png">
+    </div>`
+}
 
 function computerChoice(){
-    var choice = Math.random()
+  var choice = Math.random()
   if (choice<.33){
    return computerChoiceRPS = 'rock'
   } else if (choice>.66){
@@ -154,6 +211,20 @@ function computerChoice(){
   return computerChoiceRPS = 'scissors'
 }
 
+function computerChoiceDifficult(){
+  var difficultChoice = Math.random()
+if (difficultChoice<.2){
+ return computerChoiceRPS = 'rock'
+} else if (difficultChoice<.4){
+ return computerChoiceRPS = 'paper'
+} else if (difficultChoice<.6){
+  return computerChoiceRPS = 'scissors'
+} else if (difficultChoice<.8){
+  return computerChoiceRPS = 'lizard'
+}else if (difficultChoice<1){
+  return computerChoiceRPS = 'alien'
+}
+}
 
 function addHumanWins(){
   player.playerWins += 1
