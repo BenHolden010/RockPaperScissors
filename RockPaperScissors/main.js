@@ -13,8 +13,6 @@ var alienButton = document.querySelector('.alien-button')
 
 // create variables 
 
-// var computerChoiceRPS = computerChoice()
-// console.log(computerChoiceRPS)
 var playerWins = []
 var computerWins = []
 
@@ -26,6 +24,8 @@ changeGameButton.addEventListener('click', displayHome)
 rockButton.addEventListener('click', createGame)
 paperButton.addEventListener('click', createGame)
 scissorsButton.addEventListener('click', createGame)
+lizardButton.addEventListener('click', createGame)
+alienButton.addEventListener('click', createGame)
 
 
 // functions
@@ -57,53 +57,90 @@ function displayGameRPSLA() {
 //   return player
 // }
 
-function createGame(humanChoice) {
-  console.log(event.target.id)
+function createGame(event) {
+var computerChoiceRPS = computerChoice()
+var humanChoice = event.target.id
 
-  var choice = Math.random()
-  if (choice<.33){
-    computerChoiceRPS = 'rock'
-  } else if (choice>.66){
-    computerChoiceRPS = 'paper'
-  } else 
-  computerChoiceRPS = 'scissors'
 if (humanChoice === 'rock'){
   if (computerChoiceRPS === 'rock') {
-    return 'tie'
+    return tieDisplay(event)
   } else if (computerChoiceRPS === 'paper'){
-    return 'lose'
+    return loseDisplay(event)
   } else if (computerChoiceRPS === 'scissors'){
-    return 'win'
+    return winDisplay(event)
   }
 } else if (humanChoice === 'paper'){
   if (computerChoiceRPS === 'rock') {
-      return 'win'
+      return winDisplay(event)
   } else if (computerChoiceRPS === 'paper'){
-      return 'tie'
+      return tieDisplay(event)
   } else  if (computerChoiceRPS === 'scissors'){
-      return 'lose'
+      return loseDisplay(event)
   } 
 } else if (humanChoice === 'scissors'){
   if (computerChoiceRPS === 'rock') {
-    return 'lose'
+    return loseDisplay(event)
   } else if (computerChoiceRPS === 'paper'){
-      return 'win'
+      return winDisplay(event)
   } else if (computerChoiceRPS === 'scissors'){
-      return 'tie'
+      return tieDisplay(event)
   }
-} else 
-return 'the createGame() function doesnt work'
+} 
+
 }
 
-// function computerChoice(){
-//     var choice = Math.random()
-//   if (choice<.33){
-//    return computerChoiceRPS = 'rock'
-//   } else if (choice>.66){
-//    return computerChoiceRPS = 'paper'
-//   } else 
-//   return computerChoiceRPS = 'scissors'
-// }
+function winDisplay(event){
+  gameDisplay.innerHTML = `
+  <h2>😎You Win!😎</h2>
+    <div class="classic-buttons">
+      <img class="rock-button" id="${event.target.id}" src="${event.target.src}">
+      <img class="scissors-button" id="${computerChoiceRPS}" src="assets/happy-${computerChoiceRPS}.png">
+    </div>
+  `
+}
+
+function loseDisplay(event){
+  gameDisplay.innerHTML = `
+  <h2>You lose</h2>
+    <div class="classic-buttons">
+      <img class="rock-button" id="${event.target.id}" src="${event.target.src}">
+      <img class="scissors-button" id="${computerChoiceRPS}" src="assets/happy-${computerChoiceRPS}.png">
+    </div>
+  `
+}
+
+function tieDisplay(event){
+  gameDisplay.innerHTML = `
+  <h2>tie!</h2>
+    <div class="classic-buttons">
+      <img class="rock-button" id="${event.target.id}" src="${event.target.src}">
+      <img class="scissors-button" id="${computerChoiceRPS}" src="assets/happy-${computerChoiceRPS}.png">
+    </div>`
+}
+
+function resetGameRPS(){
+  gameDisplay.innerHTML = `
+  <h2>Choose your fighter!</h2>
+  <div class="classic-buttons">
+    <img class="rock-button" id="rock" src="assets/happy-rock.png">
+    <img class="paper-button" id="paper" src="assets/happy-paper.png">
+    <img class="scissors-button" id="scissors" src="assets/happy-scissors.png">
+  </div>
+  <div class="difficult-buttons hidden">  
+    <img class="lizard-button" id="lizard" src="assets/happy-lizard.png">
+    <img class="alien-button" id="alien" src="assets/happy-alien.png">
+  </div>`
+}
+
+function computerChoice(){
+    var choice = Math.random()
+  if (choice<.33){
+   return computerChoiceRPS = 'rock'
+  } else if (choice>.66){
+   return computerChoiceRPS = 'paper'
+  } else 
+  return computerChoiceRPS = 'scissors'
+}
 
 // function humanChoice(event){
 //   var humanChoice = event.target.id
@@ -125,3 +162,4 @@ function countWins(){
 // console.log(countWins())
 // console.log('playerWins=' + playerWins)
 // console.log('computerWins=' + computerWins)
+// console.log(createGame())
