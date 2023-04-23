@@ -72,20 +72,9 @@ function hideGame() {
   gameDisplay.classList.add('hidden')
 }
 
-function hideResultsDisplay() {
-  resultsTemplate.classList.add('hidden')
+function toggleResultsDisplay() {
+  resultsTemplate.classList.toggle('hidden')
 }
-
-function showResultsDisplay() {
-  resultsTemplate.classList.remove('hidden')
-}
-// function toggleClassicResults(){
-//   classicDisplay.classList.toggle('hidden')
-// }
-
-// function toggleDifficultResults(){
-//   difficultDisplay.classList.toggle('hidden')
-// }
 
 function createGame(event) {
   var computerChoiceRPS = computerChoice()
@@ -93,23 +82,18 @@ function createGame(event) {
   if (humanChoice === 'rock' && computerChoiceRPS === 'scissors' ||
     humanChoice === 'paper' && computerChoiceRPS === 'rock' || 
     humanChoice === 'scissors' && computerChoiceRPS === 'paper') {
-    // winDisplay(event)
     resultsDisplay(event, '😎 You Win! 😎')
     addHumanWins()
   } else if (humanChoice === 'rock' && computerChoiceRPS === 'paper' ||
       humanChoice === 'paper' && computerChoiceRPS === 'scissors' ||
       humanChoice === 'scissors' && computerChoiceRPS === 'rock') {
-      // loseDisplay(event)
-      resultsDisplay(event, '😭 You lose 😭')
+      resultsDisplay(event, '💻 Computer wins 💻')
       addComputerWins()
   } else if(humanChoice === computerChoiceRPS || humanChoice === computerChoiceRPSLA){
-      // tieDisplay(event)
       resultsDisplay(event, '🤯 tie 🤯')
   } 
-  // toggleClassicResults()
   setTimeout(displayGameRPS, 3000)
-  // setTimeout(toggleClassicResults, 3000)
-  setTimeout(hideResultsDisplay, 3000)
+  setTimeout(toggleResultsDisplay, 3000)
   hideGame()
   displayWins()
 }
@@ -128,7 +112,6 @@ function createDifficultGame(event) {
   humanChoice === 'alien' && computerChoiceRPSLA === 'scissors' ||
   humanChoice === 'alien' && computerChoiceRPSLA === 'rock'
   ){
-    // winDifficultDisplay(event, computerChoiceRPSLA)
     resultsDisplay(event, '😎 You Win! 😎')
     addHumanWins()
   } else if (humanChoice === 'rock' && computerChoiceRPSLA === 'paper' ||
@@ -142,84 +125,26 @@ function createDifficultGame(event) {
   humanChoice === 'alien' && computerChoiceRPSLA === 'paper' ||
   humanChoice === 'alien' && computerChoiceRPSLA === 'lizard'
   ){
-    // loseDifficultDisplay(event, computerChoiceRPSLA)
-    resultsDisplay(event, '😭 You lose 😭')
+    resultsDisplay(event, '💻 Computer wins 💻')
     addComputerWins()
   } else if(humanChoice === computerChoiceRPSLA){
-    // tieDifficultDisplay(event, computerChoiceRPSLA)
     resultsDisplay(event, '🤯 tie 🤯')
   } 
-  // toggleDifficultResults()
   hideGame()
   displayWins()
   setTimeout(displayGameRPSLA, 3000)
-  // setTimeout(toggleDifficultResults, 3000)
-  setTimeout(hideResultsDisplay, 3000)
+  setTimeout(toggleResultsDisplay, 3000)
 }
 
 function resultsDisplay(event, h2){
-  showResultsDisplay()
   resultHeader.innerText = h2
   console.log('hello')
   humanClassic.src = event.target.src
   humanDifficult.src = event.target.src
   console.log(computerChoiceRPS)
   computerChoiceIMG.src = `assets/happy-${computerChoiceRPS}.png` || `assets/happy-${computerChoiceRPSLA}.png`
-  // classicDisplay.innerHTML = `
-  // <h2>😎You Win!😎</h2>
-  //   <div class="classic-buttons">
-  //     <img class="rock-button" id="${event.target.id}" src="${event.target.src}">
-  //     <img class="scissors-button" id="${computerChoiceRPS}" src="assets/happy-${computerChoiceRPS}.png">
-  //   </div>`
+  toggleResultsDisplay()
 }
-
-// function loseDisplay(event){
-//   classicDisplay.innerHTML = `
-//   <h2>You lose</h2>
-//     <div class="classic-buttons">
-//       <img class="rock-button" id="${event.target.id}" src="${event.target.src}">
-//       <img class="scissors-button" id="${computerChoiceRPS}" src="assets/happy-${computerChoiceRPS}.png">
-//     </div>`
-// }
-
-// function tieDisplay(event){
-//   classicDisplay.innerHTML = `
-//   <h2>tie!</h2>
-//     <div class="classic-buttons">
-//       <img class="rock-button" id="${event.target.id}" src="${event.target.src}">
-//       <img class="scissors-button" id="${computerChoiceRPS}" src="assets/happy-${computerChoiceRPS}.png">
-//     </div>`
-// }
-
-// function winDifficultDisplay(event, computerChoiceRPSLA){
-//   var humanChoice = event.target.classList[0]
-//   difficultDisplay.innerHTML = `
-//   <h2>😎You Win!😎</h2>
-//     <div class="difficult-buttons">
-//       <img class="${humanChoice}" src="${event.target.src}">
-//       <img class="${computerChoiceRPSLA}" src="assets/happy-${computerChoiceRPSLA}.png">
-//     </div>`
-// }
-
-// function loseDifficultDisplay(event, computerChoiceRPSLA){
-//   var humanChoice = event.target.classList[0]
-//   difficultDisplay.innerHTML = `
-//   <h2>You lose</h2>
-//     <div class="difficult-buttons">
-//       <img class="${humanChoice}" src="${event.target.src}">
-//       <img class="${computerChoiceRPSLA}" src="assets/happy-${computerChoiceRPSLA}.png">
-//     </div>`
-// }
-
-// function tieDifficultDisplay(event, computerChoiceRPSLA){
-//   var humanChoice = event.target.classList[0]
-//   difficultDisplay.innerHTML = `
-//   <h2>tie!</h2>
-//     <div class="difficult-buttons">
-//     <img class="${humanChoice}" src="${event.target.src}">
-//     <img class="${computerChoiceRPSLA}" src="assets/happy-${computerChoiceRPSLA}.png">
-//     </div>`
-// }
 
 function computerChoice(){
   var choice = Math.random()
