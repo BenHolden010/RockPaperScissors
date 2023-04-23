@@ -27,7 +27,7 @@ var computerChoiceIMG = document.querySelector('.computer-choice-img')
 
 // data model
 
-fighters = ['rock','paper','scissors','lizard','alien']
+var fighters = ['rock','paper','scissors','lizard','alien']
 var player = {
   playerWins: 0,
   computerWins: 0,
@@ -38,14 +38,8 @@ var player = {
 classicButton.addEventListener('click', displayGameRPS)
 difficultButton.addEventListener('click', displayGameRPSLA)
 changeGameButton.addEventListener('click', displayHome)
-rockButton.addEventListener('click', createGame)
-paperButton.addEventListener('click', createGame)
-scissorsButton.addEventListener('click', createGame)
-rockButtonD.addEventListener('click', createDifficultGame)
-paperButtonD.addEventListener('click', createDifficultGame)
-scissorsButtonD.addEventListener('click', createDifficultGame)
-lizardButton.addEventListener('click', createDifficultGame)
-alienButton.addEventListener('click', createDifficultGame)
+classicButtons.addEventListener('click', createGame)
+difficultButtons.addEventListener('click', createDifficultGame)
 
 // functions
 
@@ -90,7 +84,7 @@ function createGame(event) {
       humanChoice === 'scissors' && computerChoiceRPS === 'rock') {
       resultsDisplay(event, '💻 Computer wins 💻')
       addComputerWins()
-  } else if(humanChoice === computerChoiceRPS || humanChoice === computerChoiceRPSLA){
+  } else if(humanChoice === computerChoiceRPS){
       resultsDisplay(event, '🤯 tie 🤯')
   } 
   hideGame()
