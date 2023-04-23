@@ -8,14 +8,6 @@ var difficultButton = document.querySelector('.difficult-button')
 var difficultButtons = document.querySelector('.difficult-buttons')
 var buttonsTemplate = document.querySelector('.buttons-template')
 var changeGameButton = document.querySelector('.change-game-button')
-var rockButton = document.querySelector('#rock')
-var paperButton = document.querySelector('#paper')
-var scissorsButton = document.querySelector('#scissors')
-var rockButtonD = document.querySelector('.rock')
-var paperButtonD = document.querySelector('.paper')
-var scissorsButtonD = document.querySelector('.scissors')
-var lizardButton = document.querySelector('.lizard')
-var alienButton = document.querySelector('.alien')
 var humanWins = document.querySelector('.human-wins')
 var computerWins = document.querySelector('.computer-wins')
 var classicDisplay = document.querySelector('.classic-display')
@@ -123,7 +115,6 @@ function resultsDisplay(event, h2){
   console.log('hello')
   humanClassic.src = event.target.src
   humanDifficult.src = event.target.src
-  console.log(computerChoiceRPS)
   computerChoiceIMG.src = `assets/happy-${computerChoiceRPS}.png` || `assets/happy-${computerChoiceRPSLA}.png`
   toggleResultsDisplay()
 }
@@ -149,4 +140,3 @@ function addComputerWins(){
   player.computerWins += 1
   computerWins.innerHTML = `wins: ${player.computerWins}`
 }
-
