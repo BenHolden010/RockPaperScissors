@@ -27,6 +27,7 @@ var computerChoiceIMG = document.querySelector('.computer-choice-img')
 
 // data model
 
+fighters = ['rock','paper','scissors','lizard','alien']
 var player = {
   playerWins: 0,
   computerWins: 0,
@@ -92,10 +93,10 @@ function createGame(event) {
   } else if(humanChoice === computerChoiceRPS || humanChoice === computerChoiceRPSLA){
       resultsDisplay(event, '🤯 tie 🤯')
   } 
-  setTimeout(displayGameRPS, 3000)
-  setTimeout(toggleResultsDisplay, 3000)
   hideGame()
   displayWins()
+  setTimeout(displayGameRPS, 3000)
+  setTimeout(toggleResultsDisplay, 3000)
 }
 
 function createDifficultGame(event) {
@@ -146,29 +147,16 @@ function resultsDisplay(event, h2){
   toggleResultsDisplay()
 }
 
-function computerChoice(){
-  var choice = Math.random()
-  if (choice<.33){
-   return computerChoiceRPS = 'rock'
-  } else if (choice>.66){
-   return computerChoiceRPS = 'paper'
-  } else 
-  return computerChoiceRPS = 'scissors'
+function getRandomInt(max){
+  return Math.floor(Math.random() * max)
 }
 
-function computerChoiceDifficult(){
-  var difficultChoice = Math.random()
-if (difficultChoice<.2){
- return computerChoiceRPS = 'rock'
-} else if (difficultChoice<.4){
- return computerChoiceRPS = 'paper'
-} else if (difficultChoice<.6){
-  return computerChoiceRPS = 'scissors'
-} else if (difficultChoice<.8){
-  return computerChoiceRPS = 'lizard'
-}else if (difficultChoice<1){
-  return computerChoiceRPS = 'alien'
+function computerChoice(){
+ return computerChoiceRPS = fighters[getRandomInt(3)]
 }
+
+function computerChoiceDifficult() {
+  return computerChoiceRPS = fighters[getRandomInt(5)]
 }
 
 function addHumanWins(){
