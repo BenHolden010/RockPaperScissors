@@ -109,10 +109,11 @@ function createDifficultGame(event) {
 
 function resultsDisplay(event, h2){
   resultHeader.innerText = h2
-  console.log('hello')
   humanClassic.src = event.target.src
   humanDifficult.src = event.target.src
+  humanClassic.alt = event.target.id
   computerChoiceIMG.src = `assets/happy-${computerChoiceRPS}.png` || `assets/happy-${computerChoiceRPSLA}.png`
+  computerChoiceIMG.alt = computerChoiceRPS || computerChoiceRPSLA
   toggleResultsDisplay()
 }
 
