@@ -115,13 +115,14 @@ h2 {
   justify-content: center;
 }
 
-.classic-buttons, .difficult-buttons {
+.classic-buttons, .difficult-buttons, .buttons-template {
   display: flex;
   justify-content: space-evenly;
 }
 
-.rock-button, .paper-button, .scissors-button, .rock, .paper, .scissors, .alien, .lizard {
-  height: 150px
+.rock-button, .paper-button, .scissors-button, .rock, .paper, .scissors, .alien, .lizard, #human-classic, .human-difficult, .computer-choice-img {
+  height: 150px;
+  width: 150px
 }
 
 /* --------- */
