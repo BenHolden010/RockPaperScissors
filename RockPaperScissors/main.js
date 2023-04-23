@@ -1,4 +1,5 @@
 // create variables that target relevent dom elements
+
 var homeSection = document.querySelector('.home-section')
 var gameDisplay = document.querySelector('.game-display')
 var classicButton = document.querySelector('.classic-button')
@@ -79,16 +80,13 @@ function createGame(event) {
     humanChoice === 'scissors' && computerChoiceRPS === 'paper') {
     resultsDisplay(event, '😎 You Win! 😎')
     addHumanWins()
-  } else if (humanChoice === 'rock' && computerChoiceRPS === 'paper' ||
-      humanChoice === 'paper' && computerChoiceRPS === 'scissors' ||
-      humanChoice === 'scissors' && computerChoiceRPS === 'rock') {
-      resultsDisplay(event, '💻 Computer wins 💻')
-      addComputerWins()
-  } else if(humanChoice === computerChoiceRPS){
+  }  else if(humanChoice === computerChoiceRPS){
       resultsDisplay(event, '🤯 tie 🤯')
-  } 
+  } else {
+  resultsDisplay(event, '💻 Computer wins 💻')
+  addComputerWins()
+}
   hideGame()
-  displayWins()
   setTimeout(displayGameRPS, 3000)
   setTimeout(toggleResultsDisplay, 3000)
 }
@@ -109,24 +107,13 @@ function createDifficultGame(event) {
   ){
     resultsDisplay(event, '😎 You Win! 😎')
     addHumanWins()
-  } else if (humanChoice === 'rock' && computerChoiceRPSLA === 'paper' ||
-  humanChoice === 'rock' && computerChoiceRPSLA === 'alien' ||
-  humanChoice === 'paper' && computerChoiceRPSLA === 'scissors' ||
-  humanChoice === 'paper' && computerChoiceRPSLA === 'lizard' ||
-  humanChoice === 'scissors' && computerChoiceRPSLA === 'rock' ||
-  humanChoice === 'scissors' && computerChoiceRPSLA === 'alien' ||
-  humanChoice === 'lizard' && computerChoiceRPSLA === 'rock' ||
-  humanChoice === 'lizard' && computerChoiceRPSLA === 'scissors' ||
-  humanChoice === 'alien' && computerChoiceRPSLA === 'paper' ||
-  humanChoice === 'alien' && computerChoiceRPSLA === 'lizard'
-  ){
-    resultsDisplay(event, '💻 Computer wins 💻')
-    addComputerWins()
   } else if(humanChoice === computerChoiceRPSLA){
     resultsDisplay(event, '🤯 tie 🤯')
-  } 
+  } else {
+    resultsDisplay(event, '💻 Computer wins 💻')
+    addComputerWins()
+  }  
   hideGame()
-  displayWins()
   setTimeout(displayGameRPSLA, 3000)
   setTimeout(toggleResultsDisplay, 3000)
 }
@@ -155,13 +142,11 @@ function computerChoiceDifficult() {
 
 function addHumanWins(){
   player.playerWins += 1
+  humanWins.innerHTML = `wins: ${player.playerWins}`
 }
 
 function addComputerWins(){
   player.computerWins += 1
+  computerWins.innerHTML = `wins: ${player.computerWins}`
 }
 
-function displayWins(){
-computerWins.innerHTML = `wins: ${player.computerWins}`
-humanWins.innerHTML = `wins: ${player.playerWins}`
-}
