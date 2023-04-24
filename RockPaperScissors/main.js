@@ -55,6 +55,7 @@ function displayGameRPSLA() {
 
 function hideGame() {
   gameDisplay.classList.add('hidden')
+  changeGameButton.classList.add('hidden')
 }
 
 function toggleResultsDisplay() {
@@ -62,7 +63,7 @@ function toggleResultsDisplay() {
 }
 
 function createGame(event) {
-  var computerChoiceRPS = computerChoice()
+  var computerChoiceRPS = computerChoice(3)
   var humanChoice = event.target.id
   if (humanChoice === 'rock' && computerChoiceRPS === 'scissors' ||
     humanChoice === 'paper' && computerChoiceRPS === 'rock' || 
@@ -81,7 +82,7 @@ function createGame(event) {
 }
 
 function createDifficultGame(event) {
-  var computerChoiceRPSLA = computerChoiceDifficult()
+  var computerChoiceRPSLA = computerChoice(5)
   var humanChoice = event.target.classList[0]
   if (humanChoice === 'rock' && computerChoiceRPSLA === 'scissors' ||
   humanChoice === 'rock' && computerChoiceRPSLA === 'lizard' ||
@@ -121,12 +122,8 @@ function getRandomInt(max){
   return Math.floor(Math.random() * max)
 }
 
-function computerChoice(){
- return computerChoiceRPS = fighters[getRandomInt(3)]
-}
-
-function computerChoiceDifficult() {
-  return computerChoiceRPS = fighters[getRandomInt(5)]
+function computerChoice(numFighters){
+ return computerChoiceRPS = fighters[getRandomInt(numFighters)]
 }
 
 function addHumanWins(){
