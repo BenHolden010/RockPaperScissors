@@ -118,12 +118,8 @@ function resultsDisplay(event, h2){
   toggleResultsDisplay()
 }
 
-function getRandomInt(max){
-  return Math.floor(Math.random() * max)
-}
-
 function computerChoice(numFighters){
- return computerChoiceRPS = fighters[getRandomInt(numFighters)]
+  return computerChoiceRPS = fighters[Math.floor(Math.random() * numFighters)]
 }
 
 function addHumanWins(){
