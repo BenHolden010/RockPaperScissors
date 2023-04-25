@@ -1,6 +1,6 @@
 * {
   background-color: rgb(209 118 255);
-  /* border: 2px solid red; */
+  border: 2px solid red;
   color: white;
 }
 
@@ -37,7 +37,6 @@ body {
 }
 
 .human-wins, .computer-wins {
-  padding: 14px;
   width: 100%;
   background-color: rgb(219 147 255);
   display: flex;
