@@ -9,23 +9,21 @@
 </head>
 <body>
   <section class="human-section">
-    <img class="human-icon" src="assets/human-icon-png-1895.png">
+    <img class="human-icon" src="assets/human-icon-png-1895.png" alt="human icon">
     <label class="human-label">Human</label>
     <section class="human-wins">Wins: 0</section>
     <button class="change-game-button hidden">Change Game?</button>
   </section>
-  <section class="game-section">
+  <main class="game-section">
     <h1>Rock, Paper, Scissors</h1>
     <section class="home-section">
       <h2>Choose your game!</h2>
       <button class="classic-button">
-        <div>
-          <label class="classic-label">
-            <img class="rock-icon" src="assets/happy-rock.png">
+        <label class="classic-label">
+          <img class="rock-icon" src="assets/happy-rock.png" alt="rock icon">
             CLASSIC
-            <img class="scissors-icon" src="assets/happy-scissors.png">
-          </label>
-        </div>
+          <img class="scissors-icon" src="assets/happy-scissors.png" alt="scissors icon">
+        </label>
         <div class="rules">
           <label class="button-label">rock > scissors</label>
           <label class="button-label">paper > rock</label>
@@ -33,12 +31,11 @@
         </div>
       </button>
       <button class="difficult-button">
-        <div>
-          <label class="difficult-label">
-            <img class="lizard-icon" src="assets/happy-lizard.png">
-            DIFFICULT
-            <img class="alien-icon" src="assets/happy-alien.png"></label>
-        </div>
+        <label class="difficult-label">
+          <img class="lizard-icon" src="assets/happy-lizard.png" alt="lizard icon">
+          DIFFICULT
+          <img class="alien-icon" src="assets/happy-alien.png" alt="alien icon">
+        </label>
         <div class="rules">
           <label class="button-label">rock > scissors & lizard</label>
           <label class="button-label">paper > rock & alien</label>
@@ -51,27 +48,28 @@
     <section class="game-display hidden">
       <h2>Choose your fighter!</h2>
       <div class="classic-buttons">
-        <img class="rock-button" id="rock" src="assets/happy-rock.png">
-        <img class="paper-button" id="paper" src="assets/happy-paper.png">
-        <img class="scissors-button" id="scissors" src="assets/happy-scissors.png">
+        <img class="rock-button" id="rock" src="assets/happy-rock.png" alt="rock">
+        <img class="paper-button" id="paper" src="assets/happy-paper.png" alt="paper">
+        <img class="scissors-button" id="scissors" src="assets/happy-scissors.png" alt="scissors">
       </div>
       <div class="difficult-buttons">
-        <img class="rock" id="rock-button-difficult" src="assets/happy-rock.png">
-        <img class="paper" id="paper-button-difficult" src="assets/happy-paper.png">
-        <img class="scissors" id="scissors-button-difficult" src="assets/happy-scissors.png">  
-        <img class="lizard" id="lizard-button-difficult" src="assets/happy-lizard.png">
-        <img class="alien" id="alien-button-difficult" src="assets/happy-alien.png">
+        <img class="rock" id="rock-button-difficult" src="assets/happy-rock.png" alt="rock">
+        <img class="paper" id="paper-button-difficult" src="assets/happy-paper.png" alt="paper">
+        <img class="scissors" id="scissors-button-difficult" src="assets/happy-scissors.png" alt="scissors">  
+        <img class="lizard" id="lizard-button-difficult" src="assets/happy-lizard.png" alt="lizard">
+        <img class="alien" id="alien-button-difficult" src="assets/happy-alien.png" alt="alien">
       </div>
     </section>
-    <section class="classic-display">
-      <!-- classic results display goes here -->
+    <section class="results-template hidden">
+      <h2 class="result-header"></h2>
+      <div class="buttons-template">
+        <img class="human-difficult" id="human-classic">
+        <img class="computer-choice-img">
+      </div>
     </section>
-    <section class="difficult-display">
-      <!-- difficult results display goes here -->
-    </section>
-  </section>
+  </main>
   <section class="computer-section">
-    <img class="human-icon" src="assets/robot-icons-30496.png">
+    <img class="human-icon" src="assets/robot-icons-30496.png" alt="robot">
     <label class="computer-label">Computer</label>
     <section class="computer-wins">Wins: 0</section>
   </section>

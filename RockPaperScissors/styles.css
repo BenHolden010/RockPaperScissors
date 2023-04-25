@@ -12,13 +12,16 @@ body {
   margin: 0px;
 }
 
-.human-icon, .robot-icon {
+.human-icon, 
+.robot-icon {
   height: 50px;
   width: 50px;
   background-color: rgb(219 147 255);
 }
 
-.human-section, .game-section, .computer-section {
+.human-section, 
+.game-section, 
+.computer-section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,8 +46,9 @@ body {
 
 .change-game-button {
   background-color: rgb(196 80 255);
-  border: 0;
+  border: blueviolet;
   font-size: 10px;
+  height: 40px;
 }
 
 h1 {
@@ -68,7 +72,8 @@ h2 {
 
 /* Home View */
 
-.classic-button, .difficult-button {
+.classic-button, 
+.difficult-button {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -87,24 +92,30 @@ h2 {
   height: 170px;
 }
 
-.rock-icon, .scissors-icon, .lizard-icon, .alien-icon {
+.rock-icon, 
+.scissors-icon, 
+.lizard-icon, 
+.alien-icon {
   height: 13px;
   width: 13px;
 }
 
-.classic-label, .difficult-label, .rock-icon, .scissors-icon, .lizard-icon, .alien-icon {
-  background-color: rgb(196 80 255);
+.classic-label, 
+.difficult-label, 
+.rock-icon, 
+.scissors-icon, 
+.lizard-icon, 
+.alien-icon {
+  background-color: inherit;
 }
 
 .rules {
   display: flex;
   flex-direction: column;
+  background-color: inherit;
 }
 .button-label {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: rgb(196 80 255);
+  background-color: inherit;
 }
 
 /* classic display and difficult display */
@@ -115,16 +126,49 @@ h2 {
   justify-content: center;
 }
 
-.classic-buttons, .difficult-buttons {
+.classic-buttons, 
+.difficult-buttons, 
+.buttons-template {
   display: flex;
   justify-content: space-evenly;
 }
 
-.rock-button, .paper-button, .scissors-button, .rock, .paper, .scissors, .alien, .lizard {
-  height: 150px
+.rock-button, 
+.paper-button, 
+.scissors-button, 
+.rock, 
+.paper, 
+.scissors, 
+.alien, 
+.lizard, 
+#human-classic, 
+.human-difficult, 
+.computer-choice-img {
+  height: 150px;
+  width: 150px
 }
 
 /* --------- */
+
+.classic-button:hover, 
+.difficult-button:hover,
+.classic-label:hover, 
+.difficult-label:hover, 
+.rock-icon:hover, 
+.scissors-icon:hover, 
+.lizard-icon:hover, 
+.alien-icon:hover,
+.change-game-button:hover,
+.rock-button:hover, 
+.paper-button:hover, 
+.scissors-button:hover, 
+.rock:hover, 
+.paper:hover, 
+.scissors:hover, 
+.alien:hover, 
+.lizard:hover {
+background-color: rgb(219 147 255)
+}
 
 .hidden {
   display: none;
