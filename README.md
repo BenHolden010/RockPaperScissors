@@ -1,22 +1,33 @@
 # RockPaperScissors
 
 ### Abstract:
-[//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
+
+This is a website called rock paper scissors that allows a user to play against a computer. The game has a classic mode and a difficult mode. The difficult mode has rock, paper, scissors, lizard, and alien where each of these "fighters" will beat two other opponents. The rules for each of the fighters are written in their game select buttons. Once a game is selected from the home screen, the game will display the fighters. Select a fighter and the game will play and the result will be displayed and automatically reset shortly. 
 
 ### Installation Instructions:
-[//]: <> (What steps does a person have to take to get your app cloned down and running?)
+
+1. Fork and clone this repo.
+2. Type `cd javascript-foundations` to move into the root directory
+3. Run `code .` to open vs code to access the files
+4. Run `open index.html` to view the game on the web page
 
 ### Preview of App:
-[//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/126317930/234361702-3b3fda9b-f927-45df-84a3-31ecd7985fdd.gif)
 
 ### Context:
-[//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
+
+This project took me 5 days to complete, i am currently in week 6 of mod1 at turing.
 
 ### Contributors:
-[//]: <> (Who worked on this application? Link to their GitHubs.)
+
+Ben Holden
 
 ### Learning Goals:
-[//]: <> (What were the learning goals of this project? What tech did you work with?)
+
+The learning goals of this project were to practice creating a website using javascript CSS and HTML from blank files into a functional and aesthetic web page without other contributors.
 
 ### Wins + Challenges:
 [//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
+Wins: During this project I created a solid HTML and CSS file before I began writing javascript code. This helped me visualize how I would manipulate the structure of the web page to get my dsired functionality before I even started the logic. I was also able to reach out to my rock to get help when I would be stuck on how to implement functionality which once I had a general idea I was able to refactor into a very dynamic function.
+
+Challenges: I faced challenges getting my inner html to be manipulated by the user each time a new section was added. I was stuck on this for a few hours but once I decided to make a new html section just for the results display I was able to not only run the game but make the javascript more dynamic.
