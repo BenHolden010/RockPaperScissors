@@ -16,7 +16,7 @@ This is a website called rock paper scissors that allows a user to play against 
 
 ### Context:
 
-This project took me 5 days to complete, i am currently in week 6 of mod1 at turing.
+This project took me 5 days to complete, I am currently in week 6 of mod1 at turing.
 
 ### Contributors:
 
@@ -24,10 +24,10 @@ Ben Holden
 
 ### Learning Goals:
 
-The learning goals of this project were to practice creating a website using javascript CSS and HTML from blank files into a functional and aesthetic web page without other contributors.
+The learning goals of this project were to practice creating a website using javascript, CSS, and HTML from blank files into a functional and aesthetic web page without other contributors.
 
 ### Wins + Challenges:
-[//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
-Wins: During this project I created a solid HTML and CSS file before I began writing javascript code. This helped me visualize how I would manipulate the structure of the web page to get my dsired functionality before I even started the logic. I was also able to reach out to my rock to get help when I would be stuck on how to implement functionality which once I had a general idea I was able to refactor into a very dynamic function.
+
+Wins: During this project I created a solid HTML and CSS file before I began writing javascript code. This helped me visualize how I would manipulate the structure of the web page to get my desired functionality before I even started the logic. I was also able to reach out to my rock to get help when I would be stuck on how to implement functionality which once I had a general idea I was able to refactor into a very dynamic function.
 
 Challenges: I faced challenges getting my inner html to be manipulated by the user each time a new section was added. I was stuck on this for a few hours but once I decided to make a new html section just for the results display I was able to not only run the game but make the javascript more dynamic.
