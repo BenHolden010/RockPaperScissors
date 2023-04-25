@@ -30,6 +30,7 @@ body {
   padding: 3%;
   background-color: rgb(219 147 255);
   height: 30vh;
+  border-radius: 8px;
 }
 
 .human-label, .computer-label {
@@ -48,6 +49,7 @@ body {
   border: blueviolet;
   font-size: 10px;
   height: 40px;
+  border-radius: 5px;
 }
 
 h1 {
@@ -80,7 +82,8 @@ h2 {
   justify-content: space-evenly;
   width: 100%;
   background-color: rgb(196 80 255);
-  border: 0
+  border: 0;
+  border-radius: 8px;
 }
 
 .classic-button {
