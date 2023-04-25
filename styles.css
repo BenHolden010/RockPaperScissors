@@ -30,6 +30,7 @@ body {
 .human-section, .computer-section {
   padding: 3%;
   background-color: rgb(219 147 255);
+  height: 30vh;
 }
 
 .human-label, .computer-label {
@@ -130,6 +131,7 @@ h2 {
 .buttons-template {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .rock-button, 
