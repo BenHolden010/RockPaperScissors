@@ -13,6 +13,7 @@ This is a website called rock paper scissors that allows a user to play against 
 
 ### Preview of App:
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/126317930/234361702-3b3fda9b-f927-45df-84a3-31ecd7985fdd.gif)
+https://benholden010.github.io/RockPaperScissors/
 
 ### Context:
 
