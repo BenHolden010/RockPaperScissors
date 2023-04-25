@@ -7,7 +7,7 @@ This is a website called rock paper scissors that allows a user to play against 
 ### Installation Instructions:
 
 1. Fork and clone this repo.
-2. Type `cd javascript-foundations` to move into the root directory
+2. Type `cd RockPaperScissors` to move into the root directory
 3. Run `code .` to open vs code to access the files
 4. Run `open index.html` to view the game on the web page
 
